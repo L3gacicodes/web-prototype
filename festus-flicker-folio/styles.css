@@ -750,96 +750,92 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* === MOBILE OPTIMIZATION ADDITIONS === */
 @media (max-width: 768px) {
-    .hero-greeting {
-        font-size: 2rem;
-    }
-    
-    .hero-name {
-        font-size: 2.5rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .contact-title {
-        font-size: 2rem;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
-    
-    .role-badges {
-        justify-content: center;
-    }
-    
-    .hero-images {
-        justify-content: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .about-card,
-    .contact-card {
-        padding: 2rem;
-    }
-    
-    .gallery-item img {
-        height: 150px;
-    }
-    
-    .contact-social-links {
-        flex-direction: column;
-        align-items: center;
-    }
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Center images and ensure proper scaling */
+  img, .hero-main-image img, .about-image img, .gallery-item img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Stack hero section neatly */
+  .hero-section .row {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  /* Navigation collapse for small screens */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.97);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Gallery layout improvements */
+  .gallery-grid .row > [class*="col-"] {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .gallery-item img {
+    height: auto;
+    min-height: 150px;
+  }
+
+  /* Reduce padding for sections */
+  section {
+    padding: 60px 0;
+  }
 }
 
-@media (max-width: 576px) {
-    .hero-section {
-        padding: 100px 0 60px;
-    }
-    
-    .hero-greeting {
-        font-size: 1.5rem;
-    }
-    
-    .hero-name {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
-    
-    .contact-title {
-        font-size: 1.5rem;
-    }
-    
-    .role-badge {
-        font-size: 0.8rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    .hero-image-container {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .about-card,
-    .contact-card {
-        padding: 1.5rem;
-    }
-    
-    .gallery-item img {
-        height: 120px;
-    }
+@media (max-width: 480px) {
+  .gallery-grid .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-greeting {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
 }
+
 
 /* Smooth scrolling */
 html {
