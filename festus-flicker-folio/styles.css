@@ -750,89 +750,153 @@ body {
     font-size: 0.9rem;
 }
 
-/* === MOBILE OPTIMIZATION ADDITIONS === */
+/* === MOBILE-SPECIFIC OPTIMIZATIONS (SMALL SCREENS) === */
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
+
+  /* Hamburger menu on the right */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
   }
 
-  /* Center images and ensure proper scaling */
-  img, .hero-main-image img, .about-image img, .gallery-item img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-  }
-
-  /* Stack hero section neatly */
-  .hero-section .row {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .hero-content {
-    padding: 0 1rem;
-  }
-
-  /* Navigation collapse for small screens */
+  /* Compact mobile nav dropdown */
   .nav-menu {
     display: none;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.97);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.98);
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
+    top: 70px;
+    right: 10px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    transition: all 0.3s ease-in-out;
   }
 
   .nav-menu.active {
     display: flex;
   }
 
-  .hamburger {
-    display: flex;
-  }
-
   .nav-link {
-    font-size: 1rem;
-    padding: 10px;
+    width: 100%;
     text-align: center;
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: var(--primary-color);
   }
 
-  /* Gallery layout improvements */
-  .gallery-grid .row > [class*="col-"] {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .nav-link:hover {
+    background: var(--light-purple);
   }
 
-  .gallery-item img {
+  /* Hero Section Adjustments */
+  .hero-section {
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-main-image {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+  }
+
+  .hero-main-image img {
+    width: 70%;
+    max-width: 280px;
     height: auto;
-    min-height: 150px;
+    border-radius: 12px;
   }
 
-  /* Reduce padding for sections */
+  /* Congratulatory section image fixes */
+  .congratulatory-section .open-book {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .congratulatory-section .book-page {
+    width: 90%;
+    height: auto;
+  }
+
+  .congratulatory-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* About section: hide image on small screens */
+  .about-image {
+    display: none;
+  }
+
+ /* Gallery section: 2 perfectly square columns, tight spacing */
+/* Gallery section - identical to UK Government Delegation layout */
+.gallery-grid .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 4px; /* same subtle spacing as UK Gov section */
+  padding: 0;
+}
+
+.gallery-grid .row > div {
+  flex: 0 0 48%;
+  max-width: 48%;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-item {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--light-purple);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+
+  /* Keep padding compact */
   section {
     padding: 60px 0;
   }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid .row > [class*="col-"] {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .gallery-grid .row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
   }
 
-  .hero-name {
-    font-size: 2rem;
-  }
-
-  .hero-greeting {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
+  .hero-main-image img {
+    width: 80%;
   }
 }
 
